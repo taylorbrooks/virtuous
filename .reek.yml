@@ -1,0 +1,26 @@
+detectors:
+  IrresponsibleModule:
+    enabled: false
+  DataClump:
+    enabled: false
+  FeatureEnvy:
+    exclude:
+      - "Virtuous::Client#connection"
+      - "Hash#deep_transform_keys"
+      - "FaradayMiddleware::ParseOj#on_complete"
+  NilCheck:
+    exclude:
+      - "Virtuous::Client#initialize"
+  UtilityFunction:
+    public_methods_only: true
+  NestedIterators:
+    exclude:
+      - "Hash#deep_transform_keys"
+  TooManyStatements:
+    exclude:
+      - "Hash#deep_transform_keys"
+      - "Virtuous::Client#connection"
+      - "FaradayMiddleware::VirtuousErrorHandler#on_complete"
+  ControlParameter:
+    exclude:
+      - "Virtuous::Client#initialize"
