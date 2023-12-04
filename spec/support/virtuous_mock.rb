@@ -5,7 +5,8 @@ require_relative 'fixtures_helper'
 class VirtuousMock < Sinatra::Base
   # GET requests
   {
-    contact: 'Contact/Find'
+    contact: 'Contact/Find',
+    individual: 'ContactIndividual/Find'
   }.each do |json, end_point|
     get "/api/#{end_point}" do
       json_response 200, "#{json}.json"

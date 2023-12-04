@@ -14,6 +14,7 @@ module Virtuous
   # See Virtuous::Client::new for a full list of supported configuration options.
   class Client
     include Virtuous::Client::Contact
+    include Virtuous::Client::Individual
 
     attr_reader :api_key, :base_url
 
