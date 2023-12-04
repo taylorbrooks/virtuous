@@ -1,0 +1,82 @@
+# All cops
+
+AllCops:
+  TargetRubyVersion: 2.7
+  NewCops: "enable"
+  Exclude:
+    - "bin/*"
+
+# Layout cops
+
+Layout/LineLength:
+  Max: 100
+  # To make it possible to copy or click on URIs in the code, we allow lines
+  # containing a URI to be longer than Max.
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
+
+# Metrics cops
+
+Metrics/AbcSize:
+  # The ABC size is a calculated magnitude, so this number can be an Integer or
+  # a Float.
+  Max: 15
+  Exclude:
+    - lib/virtuous/error.rb
+
+Metrics/BlockLength:
+  CountComments: false # count full line comments?
+  Max: 25
+  Exclude:
+    - config/**/*
+    - spec/**/*
+
+Metrics/BlockNesting:
+  Max: 4
+
+Metrics/ClassLength:
+  CountComments: false # count full line comments?
+  Max: 200
+
+# Avoid complex methods.
+Metrics/CyclomaticComplexity:
+  Max: 6
+  Exclude:
+    - lib/virtuous/error.rb
+
+Metrics/MethodLength:
+  CountComments: false # count full line comments?
+  Max: 24
+
+Metrics/ModuleLength:
+  CountComments: false # count full line comments?
+  Max: 200
+
+Metrics/ParameterLists:
+  Max: 5
+  CountKeywordArgs: true
+
+Metrics/PerceivedComplexity:
+  Max: 12
+
+# Style cops
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/ModuleFunction:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+# Lint cops
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - spec/**/*
