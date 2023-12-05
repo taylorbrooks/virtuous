@@ -3,7 +3,7 @@ require 'oj'
 module FaradayMiddleware
   class ParseOj < Faraday::Middleware
     ##
-    # Parses JSON responses
+    # Parses JSON responses.
     def on_complete(env)
       body = env[:body]
       env[:body] = if empty_body?(body.strip)
