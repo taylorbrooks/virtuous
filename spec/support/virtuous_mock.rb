@@ -8,7 +8,9 @@ class VirtuousMock < Sinatra::Base
     'Contact/Find' => :contact,
     'Contact/:id' => :contact,
     'ContactIndividual/Find' => :individual,
-    'ContactIndividual/:id' => :individual
+    'ContactIndividual/:id' => :individual,
+    'Gift/ByContact/:id' => :contact_gifts,
+    'Gift/:id' => :gift
   }.each do |end_point, json|
     get "/api/#{end_point}" do
       json_response 200, "#{json}.json"
@@ -19,7 +21,11 @@ class VirtuousMock < Sinatra::Base
   {
     'Contact/Transaction' => :import,
     'Contact' => :contact,
-    'ContactIndividual' => :individual
+    'ContactIndividual' => :individual,
+    'v2/Gift/Transaction' => :import,
+    'v2/Gift/Transactions' => :import,
+    'Gift' => :gift,
+    'Gift/Bulk' => :gifts
   }.each do |end_point, json|
     post "/api/#{end_point}" do
       json_response 200, "#{json}.json"
@@ -29,7 +35,8 @@ class VirtuousMock < Sinatra::Base
   # PUT requests
   {
     'Contact/:id' => :contact,
-    'ContactIndividual/:id' => :individual
+    'ContactIndividual/:id' => :individual,
+    'Gift/:id' => :gift
   }.each do |end_point, json|
     put "/api/#{end_point}" do
       json_response 200, "#{json}.json"
@@ -38,7 +45,8 @@ class VirtuousMock < Sinatra::Base
 
   # DELETE requests
   [
-    'ContactIndividual/:id'
+    'ContactIndividual/:id',
+    'Gift/:id'
   ].each do |end_point|
     delete "/api/#{end_point}" do
       content_type :json
