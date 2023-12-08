@@ -17,7 +17,7 @@ module FaradayMiddleware
     ERROR_STATUSES = (400..600).freeze
 
     ##
-    # Throws an exception for responses with an HTTP error code
+    # Throws an exception for responses with an HTTP error code.
     def on_complete(env)
       message = error_message(env)
 
