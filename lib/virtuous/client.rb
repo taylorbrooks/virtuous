@@ -94,6 +94,8 @@ module Virtuous
     # @option config [String] :access_token The OAuth access token.
     # @option config [String] :refresh_token The OAuth refresh token.
     # @option config [Time] :expires_at The expiration date of the access token.
+    # @option config [Hash] :ssl_options SSL options to use with Faraday.
+    # @option config [Logger] :logger Logger object for Faraday.
     def initialize(**config)
       read_config(config)
 
@@ -180,7 +182,7 @@ module Virtuous
 
     def read_config(config)
       [
-        :base_url, :api_key, :access_token, :refresh_token, :expires_at, :ssl_options
+        :base_url, :api_key, :access_token, :refresh_token, :expires_at, :ssl_options, :logger
       ].each do |attribute|
         instance_variable_set("@#{attribute}", config[attribute])
       end
@@ -250,6 +252,7 @@ module Virtuous
       Faraday.new(options) do |conn|
         conn.request :json
         conn.response :oj
+        conn.response :logger, @logger if @logger
         conn.use FaradayMiddleware::VirtuousErrorHandler
         yield(conn) if block_given?
       end
