@@ -50,6 +50,17 @@ class VirtuousMock < Sinatra::Base
 
   post '/Token' do
     content_type :json
+
+    body = URI.decode_www_form(request.body.read).to_h
+
+    if body['username'] == 'otp@user.com' && body['otp'].nil?
+      status 202
+      return {
+        error: 'awaiting_verification',
+        error_description: '2-step verification code (OTP) sent.'
+      }.to_json
+    end
+
     status 200
     {
       access_token: 'new_access_token',

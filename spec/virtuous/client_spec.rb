@@ -6,13 +6,6 @@ RSpec.describe Virtuous::Client do
 
   subject(:client) { described_class.new(**attrs) }
 
-  describe '#initialize' do
-    it 'requries an authentication method' do
-      expect { described_class.new(**attrs_without_authentication) }
-        .to raise_error(ArgumentError)
-    end
-  end
-
   shared_examples 'param request' do |verb|
     let(:endpoint) { "#{verb}_test" }
     let(:url) { "https://api.virtuoussoftware.com/#{endpoint}" }
@@ -145,31 +138,6 @@ RSpec.describe Virtuous::Client do
     end
   end
 
-  shared_examples 'password auth' do
-    let(:path) { '/api/Contact/1' }
-    let(:url) { "https://api.virtuoussoftware.com#{path}" }
-
-    it 'requests a new access token on creation' do
-      client
-
-      body = URI.encode_www_form({ grant_type: 'password', username: email, password: password })
-
-      expect(WebMock).to have_requested(:post, 'https://api.virtuoussoftware.com/Token')
-        .with(body: body)
-
-      expect(client.refresh_token).to eq('new_refresh_token')
-      expect(client.access_token).to eq('new_access_token')
-      expect(client.expires_at).to be > Time.now
-    end
-
-    it 'uses the new access token in requests' do
-      client.get(path)
-
-      expect(WebMock).to have_requested(:get, url)
-        .with(headers: { 'Authorization' => 'Bearer new_access_token' })
-    end
-  end
-
   context 'with api key' do
     let(:api_key) { 'test_api_key' }
     let(:attrs) { { api_key: api_key } }
@@ -213,12 +181,65 @@ RSpec.describe Virtuous::Client do
     it_behaves_like 'expired access token auth'
   end
 
-  context 'with password' do
-    let(:email) { 'test@user.com' }
-    let(:password) { 'test_password' }
-    let(:attrs) { { email: email, password: password } }
+  context 'with password auth' do
+    let(:attrs) { {} }
+    let(:access_token) { 'new_access_token' }
 
-    it_behaves_like 'password auth'
+    before :each do
+      client.authenticate('user@email.com', 'password')
+      WebMock.reset_executed_requests!
+    end
+
+    it_behaves_like 'valid access token auth'
+  end
+
+  describe '#authenticate(email, password, otp = nil)' do
+    let(:email) { 'user@email.com' }
+    let(:password) { 'test_password' }
+    let(:attrs) { {} }
+
+    it 'sends a request to retrieve a token' do
+      client.authenticate(email, password)
+
+      body = URI.encode_www_form({ grant_type: 'password', username: email, password: password })
+
+      expect(WebMock).to have_requested(:post, 'https://api.virtuoussoftware.com/Token')
+        .with(body: body)
+    end
+
+    it 'sets the new token' do
+      client.authenticate(email, password)
+
+      expect(client.refresh_token).to eq('new_refresh_token')
+      expect(client.access_token).to eq('new_access_token')
+      expect(client.expires_at).to be > Time.now
+    end
+
+    it 'returns the new token values' do
+      response = client.authenticate(email, password)
+
+      expect(response[:refresh_token]).to eq(client.refresh_token)
+      expect(response[:access_token]).to eq(client.access_token)
+      expect(response[:expires_at]).to eq(client.expires_at)
+    end
+
+    context 'with otp' do
+      let(:email) { 'otp@user.com' }
+
+      it 'returns requires_otp if otp is not set' do
+        response = client.authenticate(email, password)
+
+        expect(response[:requires_otp]).to eq(true)
+      end
+
+      it 'sets the new token' do
+        client.authenticate(email, password, '111111')
+
+        expect(client.refresh_token).to eq('new_refresh_token')
+        expect(client.access_token).to eq('new_access_token')
+        expect(client.expires_at).to be > Time.now
+      end
+    end
   end
 
   describe '#get(path, options = {})' do
