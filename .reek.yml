@@ -30,3 +30,6 @@ detectors:
   TooManyInstanceVariables:
     exclude:
       - "Virtuous::Client"
+  InstanceVariableAssumption:
+    exclude:
+      - "Virtuous::Client"

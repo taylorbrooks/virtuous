@@ -81,3 +81,7 @@ Style/SymbolArray:
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - spec/**/*
+
+Naming/MemoizedInstanceVariableName:
+  Exclude:
+    - lib/virtuous/client.rb

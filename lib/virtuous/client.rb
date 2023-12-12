@@ -23,13 +23,6 @@ module Virtuous
     include Virtuous::Client::Individual
 
     ##
-    # Api key used for authentication.
-    attr_reader :api_key
-    ##
-    # Base url that the client will use to form URLs.
-    # default: `https://api.virtuoussoftware.com`.
-    attr_reader :base_url
-    ##
     # Access token used for OAuth authentication.
     attr_reader :access_token
     ##
@@ -53,6 +46,7 @@ module Virtuous
     # - `:access_token`: The OAuth access token.
     # - `:refresh_token`: The OAuth refresh token.
     # - `:expires_at`: The expiration date of the access token.
+    # - `:logger`: If true, the client will log internal events in the HTTP request lifecycle.
     #
     # ### Authentication
     #
@@ -99,7 +93,7 @@ module Virtuous
 
       @refreshed = false
 
-      return unless api_key.nil?
+      return unless @api_key.nil?
 
       return if use_access_token?
 
@@ -122,15 +116,16 @@ module Virtuous
     end
 
     def read_config(config)
-      @api_key = config[:api_key] || ENV.fetch('VIRTUOUS_KEY', nil)
-      @base_url = config[:base_url] || 'https://api.virtuoussoftware.com'
-      @access_token = config[:access_token]
-      @refresh_token = config[:refresh_token]
-      @expires_at = config[:expires_at]
+      [:base_url, :api_key, :access_token, :refresh_token, :expires_at, :logger].each do |attribute|
+        instance_variable_set("@#{attribute}", config[attribute])
+      end
+
+      @api_key ||= ENV.fetch('VIRTUOUS_KEY', nil)
+      @base_url ||= 'https://api.virtuoussoftware.com'
     end
 
     def use_access_token?
-      !access_token.nil? || !refresh_token.nil?
+      !@access_token.nil? || !@refresh_token.nil?
     end
 
     def get_access_token(body)
@@ -142,9 +137,9 @@ module Virtuous
     end
 
     def check_token_expiration
-      if !refresh_token.nil? &&
-         ((!expires_at.nil? && expires_at < Time.now) || access_token.nil?)
-        get_access_token({ grant_type: 'refresh_token', refresh_token: refresh_token })
+      if !@refresh_token.nil? &&
+         ((!@expires_at.nil? && @expires_at < Time.now) || @access_token.nil?)
+        get_access_token({ grant_type: 'refresh_token', refresh_token: @refresh_token })
       end
     end
 
@@ -159,27 +154,29 @@ module Virtuous
     end
 
     def bearer_token
-      if api_key.nil?
+      if @api_key.nil?
         check_token_expiration
-        return access_token
+        return @access_token
       end
 
-      api_key
+      @api_key
     end
 
     def connection
-      Faraday.new({ url: base_url }) do |conn|
+      Faraday.new({ url: @base_url }) do |conn|
         conn.request :json
         conn.request :authorization, 'Bearer', -> { bearer_token }
         conn.response :oj
+        conn.response :logger if @logger
         conn.use FaradayMiddleware::VirtuousErrorHandler
       end
     end
 
     def unauthorized_connection
-      Faraday.new({ url: base_url }) do |conn|
+      Faraday.new({ url: @base_url }) do |conn|
         conn.request :json
         conn.response :oj
+        conn.response :logger if @logger
         conn.use FaradayMiddleware::VirtuousErrorHandler
       end
     end
