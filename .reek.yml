@@ -21,6 +21,7 @@ detectors:
     exclude:
       - "Hash#deep_transform_keys"
       - "Virtuous::Client#connection"
+      - "Virtuous::Client#unauthorized_connection"
       - "FaradayMiddleware::VirtuousErrorHandler#on_complete"
   ControlParameter:
     exclude:
