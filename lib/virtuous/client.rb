@@ -71,6 +71,7 @@ module Virtuous
   class Client
     include Virtuous::Client::Contact
     include Virtuous::Client::Individual
+    include Virtuous::Client::Gift
 
     ##
     # Api key used for authentication.

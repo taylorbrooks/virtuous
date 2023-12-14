@@ -1,0 +1,80 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "contactId": 1,
+      "contactIndividualId": null,
+      "giftType": "Cash",
+      "giftDate": "12/7/2023",
+      "amount": "$10.50",
+      "segment": null,
+      "batch": null,
+      "giftUrl": "/api/Gift/1",
+      "culture": null,
+      "exchangeRate": 1.0,
+      "currencyCode": "USD",
+      "baseCurrencyCode": "USD"
+    },
+    {
+      "id": 2,
+      "contactId": 1,
+      "contactIndividualId": null,
+      "giftType": "Cash",
+      "giftDate": "12/7/2023",
+      "amount": "$10.50",
+      "segment": null,
+      "batch": null,
+      "giftUrl": "/api/Gift/2",
+      "culture": null,
+      "exchangeRate": 1.0,
+      "currencyCode": "USD",
+      "baseCurrencyCode": "USD"
+    },
+    {
+      "id": 3,
+      "contactId": 1,
+      "contactIndividualId": null,
+      "giftType": "Cash",
+      "giftDate": "12/7/2023",
+      "amount": "$10.50",
+      "segment": null,
+      "batch": null,
+      "giftUrl": "/api/Gift/3",
+      "culture": null,
+      "exchangeRate": 1.0,
+      "currencyCode": "USD",
+      "baseCurrencyCode": "USD"
+    },
+    {
+      "id": 4,
+      "contactId": 1,
+      "contactIndividualId": null,
+      "giftType": "Cash",
+      "giftDate": "12/7/2023",
+      "amount": "$10.50",
+      "segment": null,
+      "batch": null,
+      "giftUrl": "/api/Gift/4",
+      "culture": null,
+      "exchangeRate": 1.0,
+      "currencyCode": "USD",
+      "baseCurrencyCode": "USD"
+    },
+    {
+      "id": 5,
+      "contactId": 1,
+      "contactIndividualId": null,
+      "giftType": "Cash",
+      "giftDate": "12/7/2023",
+      "amount": "$10.50",
+      "segment": null,
+      "batch": null,
+      "giftUrl": "/api/Gift/5",
+      "culture": null,
+      "exchangeRate": 1.0,
+      "currencyCode": "USD",
+      "baseCurrencyCode": "USD"
+    }
+  ],
+  "total": 5
+}
