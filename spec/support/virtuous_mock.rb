@@ -10,7 +10,8 @@ class VirtuousMock < Sinatra::Base
     'ContactIndividual/Find' => :individual,
     'ContactIndividual/:id' => :individual,
     'Gift/ByContact/:id' => :contact_gifts,
-    'Gift/:id' => :gift
+    'Gift/:id' => :gift,
+    'GiftDesignation/QueryOptions' => :gift_designation_query_options
   }.each do |end_point, json|
     get "/api/#{end_point}" do
       json_response 200, "#{json}.json"
@@ -25,7 +26,8 @@ class VirtuousMock < Sinatra::Base
     'v2/Gift/Transaction' => :import,
     'v2/Gift/Transactions' => :import,
     'Gift' => :gift,
-    'Gift/Bulk' => :gifts
+    'Gift/Bulk' => :gifts,
+    'GiftDesignation/Query' => :gift_designations
   }.each do |end_point, json|
     post "/api/#{end_point}" do
       json_response 200, "#{json}.json"

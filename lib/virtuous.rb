@@ -7,6 +7,6 @@ require_relative 'virtuous/client'
 ##
 # Virtuous module documentation.
 #
-# Go to Virtuous::Client to see the documentation of the client.
+# Go to Client to see the documentation of the client.
 module Virtuous
 end
