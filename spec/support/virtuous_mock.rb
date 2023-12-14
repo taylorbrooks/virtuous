@@ -46,6 +46,23 @@ class VirtuousMock < Sinatra::Base
     end
   end
 
+  # Auth request
+
+  post '/Token' do
+    content_type :json
+    status 200
+    {
+      access_token: 'new_access_token',
+      token_type: 'bearer',
+      expires_in: 1_295_999,
+      refresh_token: 'new_refresh_token',
+      userName: 'user@email.com',
+      twoFactorEnabled: 'False',
+      '.issued': Time.now.gmtime,
+      '.expires': (Time.now + 1_295_999).gmtime
+    }.to_json
+  end
+
   private
 
   def json_response(response_code, file_name)

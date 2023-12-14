@@ -1,15 +1,15 @@
 require 'spec_helper'
 
 RSpec.describe Virtuous::Client do
-  let(:attrs) { { api_key: 'test_pi_key' } }
+  let(:attrs) { { api_key: 'test_api_key' } }
   let(:attrs_without_authentication) { { api_key: nil } }
 
   subject(:client) { described_class.new(**attrs) }
 
   describe '#initialize' do
-    it 'requries `api_key` param' do
+    it 'requries an authentication method' do
       expect { described_class.new(**attrs_without_authentication) }
-        .to raise_error(ArgumentError, /api_key/)
+        .to raise_error(ArgumentError)
     end
   end
 
@@ -66,6 +66,159 @@ RSpec.describe Virtuous::Client do
     it 'returns parsed response body' do
       expect(do_request).to eq(body)
     end
+  end
+
+  shared_examples 'api key auth' do
+    let(:path) { '/api/Contact/1' }
+    let(:url) { "https://api.virtuoussoftware.com#{path}" }
+
+    it 'doesn\'t request an access token' do
+      client.get(path)
+
+      expect(WebMock).not_to have_requested(:post, 'https://api.virtuoussoftware.com/Token')
+    end
+
+    it 'uses the key in requests' do
+      client.get(path)
+
+      expect(WebMock).to have_requested(:get, url)
+        .with(headers: { 'Authorization' => "Bearer #{api_key}" })
+    end
+  end
+
+  shared_examples 'valid access token auth' do
+    let(:path) { '/api/Contact/1' }
+    let(:url) { "https://api.virtuoussoftware.com#{path}" }
+
+    it 'doesn\'t request an access token' do
+      client.get(path)
+
+      expect(WebMock).not_to have_requested(:post, 'https://api.virtuoussoftware.com/Token')
+    end
+
+    it 'uses the access token in requests' do
+      client.get(path)
+
+      expect(WebMock).to have_requested(:get, url)
+        .with(headers: { 'Authorization' => "Bearer #{access_token}" })
+    end
+  end
+
+  shared_examples 'expired access token auth' do
+    let(:path) { '/api/Contact/1' }
+    let(:url) { "https://api.virtuoussoftware.com#{path}" }
+
+    it 'doesn\'t request an access token before doing a request' do
+      client
+
+      expect(WebMock).not_to have_requested(:post, 'https://api.virtuoussoftware.com/Token')
+    end
+
+    it 'requests a new access token before doing a request' do
+      client.get(path)
+
+      body = URI.encode_www_form({ grant_type: 'refresh_token', refresh_token: refresh_token })
+
+      expect(WebMock).to have_requested(:post, 'https://api.virtuoussoftware.com/Token')
+        .with(body: body)
+
+      expect(client.refresh_token).to eq('new_refresh_token')
+      expect(client.access_token).to eq('new_access_token')
+      expect(client.expires_at).to be > Time.now
+    end
+
+    it 'doesn\'t request an access token a second time' do
+      client.get(path)
+
+      WebMock.reset_executed_requests!
+
+      client.get(path)
+
+      expect(WebMock).not_to have_requested(:post, 'https://api.virtuoussoftware.com/Token')
+    end
+
+    it 'uses the new access token in requests' do
+      client.get(path)
+
+      expect(WebMock).to have_requested(:get, url)
+        .with(headers: { 'Authorization' => 'Bearer new_access_token' })
+    end
+  end
+
+  shared_examples 'password auth' do
+    let(:path) { '/api/Contact/1' }
+    let(:url) { "https://api.virtuoussoftware.com#{path}" }
+
+    it 'requests a new access token on creation' do
+      client
+
+      body = URI.encode_www_form({ grant_type: 'password', username: email, password: password })
+
+      expect(WebMock).to have_requested(:post, 'https://api.virtuoussoftware.com/Token')
+        .with(body: body)
+
+      expect(client.refresh_token).to eq('new_refresh_token')
+      expect(client.access_token).to eq('new_access_token')
+      expect(client.expires_at).to be > Time.now
+    end
+
+    it 'uses the new access token in requests' do
+      client.get(path)
+
+      expect(WebMock).to have_requested(:get, url)
+        .with(headers: { 'Authorization' => 'Bearer new_access_token' })
+    end
+  end
+
+  context 'with api key' do
+    let(:api_key) { 'test_api_key' }
+    let(:attrs) { { api_key: api_key } }
+
+    it_behaves_like 'api key auth'
+  end
+
+  context 'with access token' do
+    let(:access_token) { 'test_access_token' }
+    let(:attrs) { { access_token: access_token } }
+
+    it_behaves_like 'valid access token auth'
+  end
+
+  context 'with non expired access token' do
+    let(:access_token) { 'test_access_token' }
+    let(:refresh_token) { 'test_refresh_token' }
+    let(:attrs) do
+      { access_token: access_token, refresh_token: refresh_token, expires_at: Time.now + 1_295_999 }
+    end
+
+    it_behaves_like 'valid access token auth'
+  end
+
+  context 'with expired access token' do
+    let(:access_token) { 'test_access_token' }
+    let(:refresh_token) { 'test_refresh_token' }
+    let(:attrs) do
+      {
+        access_token: access_token, refresh_token: refresh_token, expires_at: Time.new(2023, 12, 11)
+      }
+    end
+
+    it_behaves_like 'expired access token auth'
+  end
+
+  context 'with no access token' do
+    let(:refresh_token) { 'test_refresh_token' }
+    let(:attrs) { { refresh_token: refresh_token } }
+
+    it_behaves_like 'expired access token auth'
+  end
+
+  context 'with password' do
+    let(:email) { 'test@user.com' }
+    let(:password) { 'test_password' }
+    let(:attrs) { { email: email, password: password } }
+
+    it_behaves_like 'password auth'
   end
 
   describe '#get(path, options = {})' do

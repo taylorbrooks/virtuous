@@ -6,6 +6,7 @@ detectors:
   FeatureEnvy:
     exclude:
       - "Virtuous::Client#connection"
+      - "Virtuous::Client#unauthorized_connection"
       - "Hash#deep_transform_keys"
       - "FaradayMiddleware::ParseOj#on_complete"
   NilCheck:
@@ -24,3 +25,8 @@ detectors:
   ControlParameter:
     exclude:
       - "Virtuous::Client#initialize"
+  NilCheck:
+    enabled: false
+  TooManyInstanceVariables:
+    exclude:
+      - "Virtuous::Client"
