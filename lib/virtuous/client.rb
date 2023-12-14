@@ -13,6 +13,56 @@ module Virtuous
   #
   # See Virtuous::Client::new for a full list of supported configuration options.
   #
+  # ### Authentication
+  #
+  # #### Api key auth
+  #
+  # To generate an api key you need to visit the
+  # [virtuous connect dashboard](https://connect.virtuoussoftware.com/).
+  # Then you can use the key by setting the `api_key` param while creating the client or
+  # by setting the `VIRTUOUS_KEY` environment variable beforehand.
+  #
+  # #### Oauth
+  #
+  # First, an access token needs to be fetched by providing a user's email and password.
+  # This will return an access token that lasts for 15 days, and a refresh token that should be
+  # stored and used to create clients in the future.
+  # The client will use the expiry date of the access token to automatically determine when a
+  # new one needs to be fetched.
+  #
+  #     client = Virtuous::Client.new
+  #     client.authenticate(email, password)
+  #     user.update(
+  #       access_token: client.access_token, refresh_token: client.refresh_token,
+  #       token_expiration: client.expires_at
+  #     )
+  #
+  #     # Afterwards
+  #
+  #     client = Virtuous::Client.new(
+  #       access_token: user.access_token, refresh_token: user.refresh_token,
+  #       expires_at: user.token_expiration
+  #     )
+  #
+  #     # Use client
+  #
+  #     if client.refreshed
+  #       # Update values if they changed
+  #       user.update(
+  #         access_token: client.access_token, refresh_token: client.refresh_token,
+  #         token_expiration: client.expires_at
+  #       )
+  #     end
+  #
+  # #### Two-Factor Authentication
+  #
+  #     client = Virtuous::Client.new
+  #     response = client.authenticate(email, password)
+  #     if response[:requires_otp]
+  #       # Prompt user for OTP
+  #       client.authenticate(email, password, otp)
+  #     end
+  #
   # Check resource modules to see available client methods:
   #
   # - Virtuous::Client::Contact
@@ -48,78 +98,108 @@ module Virtuous
     # - `:base_url`: The base url to use for API calls.
     # default: `https://api.virtuoussoftware.com`.
     # - `:api_key`: The key for the API.
-    # - `:email`: The email of the OAuth user.
-    # - `:password`: The password of the OAuth user.
     # - `:access_token`: The OAuth access token.
     # - `:refresh_token`: The OAuth refresh token.
     # - `:expires_at`: The expiration date of the access token.
-    #
-    # ### Authentication
-    #
-    # #### Api key auth
-    #
-    # To generate an api key you need to visit the
-    # [virtuous connect dashboard](https://connect.virtuoussoftware.com/).
-    # Then you can use the key by setting the `api_key` param while creating the client or
-    # by setting the `VIRTUOUS_KEY` environment variable beforehand.
-    #
-    # #### Oauth
-    #
-    # First, an access token needs to be fetched by providing a user's email and password.
-    # This will return an access token that lasts for 15 days, and a refresh token that should be
-    # stored and used to create clients in the future.
-    # The client will use the expiry date of the access token to automatically determine when a
-    # new one needs to be fetched.
-    #
-    #     client = Virtuous::Client.new(email: user.email, password: password)
-    #     user.update(
-    #       access_token: client.access_token, refresh_token: client.refresh_token,
-    #       token_expiration: client.expires_at
-    #     )
-    #
-    #     # Afterwards
-    #
-    #     client = Virtuous::Client.new(
-    #       access_token: user.access_token, refresh_token: user.refresh_token,
-    #       expires_at: user.token_expiration
-    #     )
-    #
-    #     # Use client
-    #
-    #     if client.refreshed
-    #       # Update values if they changed
-    #       user.update(
-    #         access_token: client.access_token, refresh_token: client.refresh_token,
-    #         token_expiration: client.expires_at
-    #       )
-    #     end
-    #
-    def initialize(config)
+    def initialize(**config)
       read_config(config)
 
       @refreshed = false
-
-      return unless api_key.nil?
-
-      return if use_access_token?
-
-      authenticate(config[:email], config[:password])
     end
 
+    ##
+    # :method: get
+    # :args: path, body = {}
+    # Makes a `GET` request to the path.
+    #
+    # ### Params
+    # - `path`: The path to send the request.
+    # - `body`: Hash of URI query unencoded key/value pairs.
+    #
+    # ### Returns
+    # The body of the response.
+
+    ##
+    # :method: post
+    # :args: path, body = {}
+    # Makes a `POST` request to the path.
+    #
+    # ### Params
+    # - `path`: The path to send the request.
+    # - `body`: Hash of URI query unencoded key/value pairs.
+    #
+    # ### Returns
+    # The body of the response.
+
+    ##
+    # :method: delete
+    # :args: path, body = {}
+    # Makes a `DELETE` request to the path.
+    #
+    # ### Params
+    # - `path`: The path to send the request.
+    # - `body`: Hash of URI query unencoded key/value pairs.
+    #
+    # ### Returns
+    # The body of the response.
+
+    ##
+    # :method: patch
+    # :args: path, body = {}
+    # Makes a `PATCH` request to the path.
+    #
+    # ### Params
+    # - `path`: The path to send the request.
+    # - `body`: Hash of URI query unencoded key/value pairs.
+    #
+    # ### Returns
+    # The body of the response.
+
+    ##
+    # :method: put
+    # :args: path, body = {}
+    # Makes a `PUT` request to the path.
+    #
+    # ### Params
+    # - `path`: The path to send the request.
+    # - `body`: Hash of URI query unencoded key/value pairs.
+    #
+    # ### Returns
+    # The body of the response.
     [:get, :post, :delete, :patch, :put].each do |http_method|
-      define_method(http_method) do |path, options = {}|
-        connection.public_send(http_method, path, options).body
+      define_method(http_method) do |path, body = {}|
+        connection.public_send(http_method, path, body).body
       end
     end
 
-    private
-
-    def authenticate(email, password)
-      raise ArgumentError, 'No valid authentication options' unless email && password
-
+    ##
+    # Send a request to get an access token using the email and password of a user.
+    #
+    # ### Params
+    # - `path`: The path to send the request.
+    # - `body`: Hash of URI query unencoded key/value pairs.
+    # - `otp`: One Time Password for users with two-factor authentication.
+    #
+    # ### Returns
+    #
+    #     # If the authentication was a success
+    #     {
+    #       access_token: '<access_token>',
+    #       refresh_token: '<refresh_token>',
+    #       expires_at: <expiration date>
+    #     }
+    #
+    #     # If it requires Two-Factor Authentication
+    #     {
+    #       requires_otp: true
+    #     }
+    def authenticate(email, password, otp = nil)
       data = { grant_type: 'password', username: email, password: password }
+      data[:otp] = otp unless otp.nil?
       get_access_token(data)
     end
+
+    private
 
     def read_config(config)
       @api_key = config[:api_key] || ENV.fetch('VIRTUOUS_KEY', nil)
@@ -134,10 +214,19 @@ module Virtuous
     end
 
     def get_access_token(body)
-      response = unauthorized_connection.post('/Token', URI.encode_www_form(body)).body
-      @access_token = response['access_token']
-      @expires_at = Time.parse(response['.expires'])
-      @refresh_token = response['refresh_token']
+      response = unauthorized_connection.post('/Token', URI.encode_www_form(body))
+
+      return { requires_otp: true } if response.env.status == 202
+
+      self.oauth_tokens = response.body
+
+      { access_token: @access_token, refresh_token: @refresh_token, expires_at: @expires_at }
+    end
+
+    def oauth_tokens=(values)
+      @access_token = values['access_token']
+      @expires_at = Time.parse(values['.expires'])
+      @refresh_token = values['refresh_token']
       @refreshed = true
     end
 
