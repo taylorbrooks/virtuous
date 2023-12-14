@@ -11,7 +11,7 @@ module Virtuous
   #       # ...
   #     )
   #
-  # See Virtuous::Client::new for a full list of supported configuration options.
+  # See Client::new for a full list of supported configuration options.
   #
   # ### Authentication
   #
@@ -65,13 +65,15 @@ module Virtuous
   #
   # Check resource modules to see available client methods:
   #
-  # - Virtuous::Client::Contact
-  # - Virtuous::Client::Individual
-  # - Virtuous::Client::Gift
+  # - Contact
+  # - Individual
+  # - Gift
+  # - GiftDesignation
   class Client
-    include Virtuous::Client::Contact
-    include Virtuous::Client::Individual
-    include Virtuous::Client::Gift
+    include Contact
+    include Individual
+    include Gift
+    include GiftDesignation
 
     ##
     # Api key used for authentication.

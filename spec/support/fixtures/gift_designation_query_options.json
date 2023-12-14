@@ -1,0 +1,2701 @@
+{
+  "options": [
+    {
+      "parameter": "Gift Id",
+      "type": "Int",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Gift Designation Id",
+      "type": "Int",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Legacy Id",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Transaction Source",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Transaction Id",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Create Date",
+      "type": "Date",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Before",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrBefore",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "After",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrAfter",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": [
+        "180 Days Ago",
+        "270 Days Ago",
+        "30 Days Ago",
+        "60 Days Ago",
+        "90 Days Ago",
+        "Last Sunday",
+        "One week from now",
+        "One Year Ago",
+        "Start Of This Month",
+        "This Calendar Year",
+        "Today",
+        "Tomorrow",
+        "Two Years Ago",
+        "Yesterday"
+      ]
+    },
+    {
+      "parameter": "Last Modified Date",
+      "type": "Date",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Before",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrBefore",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "After",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrAfter",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": [
+        "180 Days Ago",
+        "270 Days Ago",
+        "30 Days Ago",
+        "60 Days Ago",
+        "90 Days Ago",
+        "Last Sunday",
+        "One week from now",
+        "One Year Ago",
+        "Start Of This Month",
+        "This Calendar Year",
+        "Today",
+        "Tomorrow",
+        "Two Years Ago",
+        "Yesterday"
+      ]
+    },
+    {
+      "parameter": "Create DateTime UTC",
+      "type": "Date",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Before",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrBefore",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "After",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrAfter",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": [
+        "180 Days Ago",
+        "270 Days Ago",
+        "30 Days Ago",
+        "60 Days Ago",
+        "90 Days Ago",
+        "Last Sunday",
+        "One week from now",
+        "One Year Ago",
+        "Start Of This Month",
+        "This Calendar Year",
+        "Today",
+        "Tomorrow",
+        "Two Years Ago",
+        "Yesterday"
+      ]
+    },
+    {
+      "parameter": "Last Modified DateTime UTC",
+      "type": "Date",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Before",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrBefore",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "After",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrAfter",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": [
+        "180 Days Ago",
+        "270 Days Ago",
+        "30 Days Ago",
+        "60 Days Ago",
+        "90 Days Ago",
+        "Last Sunday",
+        "One week from now",
+        "One Year Ago",
+        "Start Of This Month",
+        "This Calendar Year",
+        "Today",
+        "Tomorrow",
+        "Two Years Ago",
+        "Yesterday"
+      ]
+    },
+    {
+      "parameter": "Gift Designation Create DateTime UTC",
+      "type": "Date",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Before",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrBefore",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "After",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrAfter",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": [
+        "180 Days Ago",
+        "270 Days Ago",
+        "30 Days Ago",
+        "60 Days Ago",
+        "90 Days Ago",
+        "Last Sunday",
+        "One week from now",
+        "One Year Ago",
+        "Start Of This Month",
+        "This Calendar Year",
+        "Today",
+        "Tomorrow",
+        "Two Years Ago",
+        "Yesterday"
+      ]
+    },
+    {
+      "parameter": "Gift Type",
+      "type": "List",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsNot",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": [
+        "Cash",
+        "Check",
+        "Credit",
+        "Cryptocoin",
+        "Electronic Funds Transfer",
+        "Non-Cash",
+        "Other",
+        "Qualified Charitable Distribution",
+        "Reversing Transaction",
+        "Stock"
+      ]
+    },
+    {
+      "parameter": "Gift Date",
+      "type": "Date",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Before",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrBefore",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "After",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrAfter",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": [
+        "180 Days Ago",
+        "270 Days Ago",
+        "30 Days Ago",
+        "60 Days Ago",
+        "90 Days Ago",
+        "Last Sunday",
+        "One week from now",
+        "One Year Ago",
+        "Start Of This Month",
+        "This Calendar Year",
+        "Today",
+        "Tomorrow",
+        "Two Years Ago",
+        "Yesterday"
+      ]
+    },
+    {
+      "parameter": "Amount",
+      "type": "Decimal",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Converted Amount Designated",
+      "type": "Decimal",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Currency Code",
+      "type": "List",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsNot",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": [
+        "AED",
+        "AFN",
+        "ALL",
+        "AMD",
+        "ARS",
+        "AUD",
+        "AZN",
+        "BAM",
+        "BDT",
+        "BGN",
+        "BHD",
+        "BND",
+        "BOB",
+        "BRL",
+        "BTN",
+        "BWP",
+        "BYN",
+        "BZD",
+        "CAD",
+        "CDF",
+        "CHF",
+        "CLP",
+        "CNY",
+        "COP",
+        "CRC",
+        "CUP",
+        "CZK",
+        "DJF",
+        "DKK",
+        "DOP",
+        "DZD",
+        "EGP",
+        "ERN",
+        "ETB",
+        "EUR",
+        "GBP",
+        "GEL",
+        "GTQ",
+        "HKD",
+        "HNL",
+        "HRK",
+        "HTG",
+        "HUF",
+        "IDR",
+        "ILS",
+        "INR",
+        "IQD",
+        "IRR",
+        "ISK",
+        "JMD",
+        "JOD",
+        "JPY",
+        "KES",
+        "KGS",
+        "KHR",
+        "KRW",
+        "KWD",
+        "KZT",
+        "LAK",
+        "LBP",
+        "LKR",
+        "LYD",
+        "MAD",
+        "MDL",
+        "MKD",
+        "MMK",
+        "MNT",
+        "MOP",
+        "MVR",
+        "MXN",
+        "MYR",
+        "NGN",
+        "NIO",
+        "NOK",
+        "NPR",
+        "NZD",
+        "OMR",
+        "PAB",
+        "PEN",
+        "PHP",
+        "PKR",
+        "PLN",
+        "PYG",
+        "QAR",
+        "RON",
+        "RSD",
+        "RUB",
+        "RWF",
+        "SAR",
+        "SEK",
+        "SGD",
+        "SOS",
+        "SYP",
+        "THB",
+        "TJS",
+        "TMT",
+        "TND",
+        "TRY",
+        "TTD",
+        "TWD",
+        "UAH",
+        "USD",
+        "UYU",
+        "UZS",
+        "VES",
+        "VND",
+        "XAF",
+        "XCD",
+        "XDR",
+        "XOF",
+        "YER",
+        "ZAR"
+      ]
+    },
+    {
+      "parameter": "Batch",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "IsSet",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotSet",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsNot",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Receipt Date",
+      "type": "Date",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Before",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrBefore",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "After",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrAfter",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": [
+        "180 Days Ago",
+        "270 Days Ago",
+        "30 Days Ago",
+        "60 Days Ago",
+        "90 Days Ago",
+        "Last Sunday",
+        "One week from now",
+        "One Year Ago",
+        "Start Of This Month",
+        "This Calendar Year",
+        "Today",
+        "Tomorrow",
+        "Two Years Ago",
+        "Yesterday"
+      ]
+    },
+    {
+      "parameter": "Thank You Date",
+      "type": "Date",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Before",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrBefore",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "After",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "OnOrAfter",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": [
+        "180 Days Ago",
+        "270 Days Ago",
+        "30 Days Ago",
+        "60 Days Ago",
+        "90 Days Ago",
+        "Last Sunday",
+        "One week from now",
+        "One Year Ago",
+        "Start Of This Month",
+        "This Calendar Year",
+        "Today",
+        "Tomorrow",
+        "Two Years Ago",
+        "Yesterday"
+      ]
+    },
+    {
+      "parameter": "Cash Accounting Code",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "State",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsNot",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "In",
+          "multipleValuesAllowed": true,
+          "valueRequired": true
+        },
+        {
+          "operator": "NotIn",
+          "multipleValuesAllowed": true,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Notes",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Private",
+      "type": "Boolean",
+      "operatorOptions": [
+        {
+          "operator": "IsTrue",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsFalse",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Gift Tax-Deductible",
+      "type": "Boolean",
+      "operatorOptions": [
+        {
+          "operator": "IsTrue",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsFalse",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Has Attachment",
+      "type": "Boolean",
+      "operatorOptions": [
+        {
+          "operator": "IsTrue",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsFalse",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Check Number",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Credit Card Type",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Form",
+      "type": "Object",
+      "operatorOptions": [
+        {
+          "operator": "IsSet",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotSet",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Form Name",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Submission Url",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Segment",
+      "type": "Object",
+      "operatorOptions": [
+        {
+          "operator": "IsSet",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotSet",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Segment Name",
+      "type": "Lookup",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Segment Code",
+      "type": "Lookup",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Package Code",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Media Outlet",
+      "type": "Object",
+      "operatorOptions": [
+        {
+          "operator": "IsSet",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotSet",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Media Outlet Name",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Media Outlet Code",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Receipt Segment",
+      "type": "Object",
+      "operatorOptions": [
+        {
+          "operator": "IsSet",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotSet",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Receipt Segment Name",
+      "type": "Lookup",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Receipt Segment Code",
+      "type": "Lookup",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Communication Name",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Communication Channel",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Campaign Name",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Project Id",
+      "type": "Int",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Project Name",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Project Code",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Project Type",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Project Tax-Deductible",
+      "type": "Boolean",
+      "operatorOptions": [
+        {
+          "operator": "IsTrue",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsFalse",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Parent Project Name",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Parent Project Code",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Parent Project Tax-Deductible",
+      "type": "Boolean",
+      "operatorOptions": [
+        {
+          "operator": "IsTrue",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsFalse",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Contact Id",
+      "type": "Int",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Legacy Contact Id",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Contact Name",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Contact Type",
+      "type": "List",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsNot",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": ["Foundation", "Household", "Organization"]
+    },
+    {
+      "parameter": "Contact Archived",
+      "type": "Boolean",
+      "operatorOptions": [
+        {
+          "operator": "IsTrue",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsFalse",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Individual",
+      "type": "Object",
+      "operatorOptions": [
+        {
+          "operator": "IsSet",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotSet",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Individual First Name",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Individual Last Name",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Passthrough Contact",
+      "type": "Object",
+      "operatorOptions": [
+        {
+          "operator": "IsSet",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotSet",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Passthrough Contact Id",
+      "type": "Int",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Passthrough Legacy Contact Id",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Passthrough Contact Name",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Tribute Id",
+      "type": "Int",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Tribute Type",
+      "type": "List",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsNot",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": ["In Honor Of", "In Memory Of"]
+    },
+    {
+      "parameter": "Tribute First Name",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Tribute Last Name",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Tribute City",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Tribute State",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Tribute Description",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Tribute",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Acknowledgee Individual Id",
+      "type": "Int",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "IsKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "IsNotKnown",
+          "multipleValuesAllowed": false,
+          "valueRequired": false
+        },
+        {
+          "operator": "LessThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "LessThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThan",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "GreaterThanOrEqual",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Between",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Acknowledgee First Name",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    },
+    {
+      "parameter": "Acknowledgee Last Name",
+      "type": "String",
+      "operatorOptions": [
+        {
+          "operator": "Is",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "Contains",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "StartsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        },
+        {
+          "operator": "EndsWith",
+          "multipleValuesAllowed": false,
+          "valueRequired": true
+        }
+      ],
+      "valueOptions": []
+    }
+  ],
+  "operatorOptions": [
+    {
+      "operator": "Is",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    },
+    {
+      "operator": "IsNot",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    },
+    {
+      "operator": "IsKnown",
+      "multipleValuesAllowed": false,
+      "valueRequired": false
+    },
+    {
+      "operator": "IsNotKnown",
+      "multipleValuesAllowed": false,
+      "valueRequired": false
+    },
+    {
+      "operator": "LessThan",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    },
+    {
+      "operator": "LessThanOrEqual",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    },
+    {
+      "operator": "GreaterThan",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    },
+    {
+      "operator": "GreaterThanOrEqual",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    },
+    {
+      "operator": "Contains",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    },
+    {
+      "operator": "StartsWith",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    },
+    {
+      "operator": "EndsWith",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    },
+    {
+      "operator": "IsTrue",
+      "multipleValuesAllowed": false,
+      "valueRequired": false
+    },
+    {
+      "operator": "IsFalse",
+      "multipleValuesAllowed": false,
+      "valueRequired": false
+    },
+    {
+      "operator": "IsSet",
+      "multipleValuesAllowed": false,
+      "valueRequired": false
+    },
+    {
+      "operator": "IsNotSet",
+      "multipleValuesAllowed": false,
+      "valueRequired": false
+    },
+    {
+      "operator": "In",
+      "multipleValuesAllowed": true,
+      "valueRequired": true
+    },
+    {
+      "operator": "NotIn",
+      "multipleValuesAllowed": true,
+      "valueRequired": true
+    },
+    {
+      "operator": "Between",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    },
+    {
+      "operator": "Before",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    },
+    {
+      "operator": "After",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    },
+    {
+      "operator": "IsAnyOf",
+      "multipleValuesAllowed": true,
+      "valueRequired": true
+    },
+    {
+      "operator": "IsNoneOf",
+      "multipleValuesAllowed": true,
+      "valueRequired": true
+    },
+    {
+      "operator": "Matches",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    },
+    {
+      "operator": "OnOrBefore",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    },
+    {
+      "operator": "OnOrAfter",
+      "multipleValuesAllowed": false,
+      "valueRequired": true
+    }
+  ]
+}
