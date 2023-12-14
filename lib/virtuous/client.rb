@@ -76,13 +76,6 @@ module Virtuous
     include GiftDesignation
 
     ##
-    # Api key used for authentication.
-    attr_reader :api_key
-    ##
-    # Base url that the client will use to form URLs.
-    # default: `https://api.virtuoussoftware.com`.
-    attr_reader :base_url
-    ##
     # Access token used for OAuth authentication.
     attr_reader :access_token
     ##
@@ -99,7 +92,7 @@ module Virtuous
     # ### Options
     #
     # - `:base_url`: The base url to use for API calls.
-    # default: `https://api.virtuoussoftware.com`.
+    # Default: `https://api.virtuoussoftware.com`.
     # - `:api_key`: The key for the API.
     # - `:access_token`: The OAuth access token.
     # - `:refresh_token`: The OAuth refresh token.
@@ -205,15 +198,18 @@ module Virtuous
     private
 
     def read_config(config)
-      @api_key = config[:api_key] || ENV.fetch('VIRTUOUS_KEY', nil)
-      @base_url = config[:base_url] || 'https://api.virtuoussoftware.com'
-      @access_token = config[:access_token]
-      @refresh_token = config[:refresh_token]
-      @expires_at = config[:expires_at]
+      [
+        :base_url, :api_key, :access_token, :refresh_token, :expires_at, :ssl_options
+      ].each do |attribute|
+        instance_variable_set("@#{attribute}", config[attribute])
+      end
+
+      @api_key ||= ENV.fetch('VIRTUOUS_KEY', nil)
+      @base_url ||= 'https://api.virtuoussoftware.com'
     end
 
     def use_access_token?
-      !access_token.nil? || !refresh_token.nil?
+      !@access_token.nil? || !@refresh_token.nil?
     end
 
     def get_access_token(body)
@@ -234,9 +230,9 @@ module Virtuous
     end
 
     def check_token_expiration
-      if !refresh_token.nil? &&
-         ((!expires_at.nil? && expires_at < Time.now) || access_token.nil?)
-        get_access_token({ grant_type: 'refresh_token', refresh_token: refresh_token })
+      if !@refresh_token.nil? &&
+         ((!@expires_at.nil? && @expires_at < Time.now) || @access_token.nil?)
+        get_access_token({ grant_type: 'refresh_token', refresh_token: @refresh_token })
       end
     end
 
@@ -251,28 +247,30 @@ module Virtuous
     end
 
     def bearer_token
-      if api_key.nil?
+      if @api_key.nil?
         check_token_expiration
-        return access_token
+        return @access_token
       end
 
-      api_key
+      @api_key
     end
 
     def connection
-      Faraday.new({ url: base_url }) do |conn|
-        conn.request :json
+      unauthorized_connection do |conn|
         conn.request :authorization, 'Bearer', -> { bearer_token }
-        conn.response :oj
-        conn.use FaradayMiddleware::VirtuousErrorHandler
       end
     end
 
     def unauthorized_connection
-      Faraday.new({ url: base_url }) do |conn|
+      options = { url: @base_url }
+
+      options[:ssl] = @ssl_options unless @ssl_options.nil?
+
+      Faraday.new(options) do |conn|
         conn.request :json
         conn.response :oj
         conn.use FaradayMiddleware::VirtuousErrorHandler
+        yield(conn) if block_given?
       end
     end
   end
