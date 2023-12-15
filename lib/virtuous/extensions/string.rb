@@ -3,6 +3,7 @@
 class String
   ##
   # Transform a String from `CamelCase` to `snake_case`.
+  # @return [String] the `snake_case` string.
   def underscore
     gsub('::', '/')
       .gsub(/([A-Z]+)([A-Z][a-z])/, '\1_\2')
@@ -13,6 +14,7 @@ class String
 
   ##
   # Transform a String from `snake_case` to `CamelCase`.
+  # @return [String] the `CamelCase` string.
   def camelize
     string = sub(/^(?:(?=\b|[A-Z_])|\w)/, &:downcase)
 

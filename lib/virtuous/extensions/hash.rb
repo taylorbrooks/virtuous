@@ -4,7 +4,7 @@ class Hash
   ##
   # Recieves a block which is called on all of the keys of the hash,
   # including the keys nested hashes inside.
-  # Returns a new hash with the transformed keys.
+  # @return [Hash] A new hash with the transformed keys.
   def deep_transform_keys(&transform)
     new_hash = {}
     keys.each do |key|

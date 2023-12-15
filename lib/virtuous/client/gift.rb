@@ -95,20 +95,19 @@ module Virtuous
       ##
       # Gets the gifts made by a contact.
       #
+      # @example
       #     client.get_contact_gifts(1, take: 10)
       #
-      # ### Params
-      # - `contact_id`: The id of the Contact.
-      # - `options`: Hash of options.
-      #     - `sort_by`: [String] The field to be sorted. Supported: `Id`, `GiftDate`, `Amount`,
-      #     `Batch`, `CreatedDateTime`.
-      #     - `descending`: [Boolean] The direction to be sorted.
-      #     - `skip`: [Integer] The number of records to skip. Default = 0.
-      #     - `take`: [Integer] The number of records to take. Default = 10.
+      # @param contact_id [Hash] The id of the Contact.
+      # @option options [String] :sort_by The field to be sorted. Supported: `Id`, `GiftDate`,
+      #   `Amount`, `Batch`, `CreatedDateTime`.
+      # @option options [Boolean] :descending The direction to be sorted.
+      # @option options [Integer] :skip The number of records to skip. Default = 0.
+      # @option options [Integer] :take The number of records to take. Default = 10.
       #
-      # ### Returns
-      # A hash with a list of gifts and the total amount of gifts belonging to the contact
-      #
+      # @return [Hash] A hash with a list of gifts and the total amount of gifts belonging to the
+      #   contact
+      # @example Output
       #     { list: [...], total: n }
       #
       def get_contact_gifts(contact_id, **options)
@@ -123,13 +122,12 @@ module Virtuous
       ##
       # Fetches a gift record by id.
       #
+      # @example
       #     client.get_gift(1)
       #
-      # ### Params
-      # - `id`: The id of the gift.
+      # @param id [Integer] The id of the gift.
       #
-      # ### Returns
-      # The gift information in a hash.
+      # @return [Hash] The gift information in a hash.
       def get_gift(id)
         parse(get("api/Gift/#{id}"))
       end
@@ -137,18 +135,17 @@ module Virtuous
       ##
       # Creates a gift.
       #
+      # @example
       #     client.create_gift(
       #       contact_id: 1, gift_type: 'Cash', amount: 10.5, currency_code: 'USD',
       #       gift_date: Date.today
       #     )
       #
-      # ### Params
-      # - `data`: A hash containing the gift details.
-      # Refer to the [Gift data](#module-Virtuous::Client::Gift-label-Gift+data) section
-      # above to see the available attributes.
+      # @param data [Hash] A hash containing the gift details.
+      #   Refer to the [Gift data](#module-Virtuous::Client::Gift-label-Gift+data) section
+      #   above to see the available attributes.
       #
-      # ### Returns
-      # The gift that has been created.
+      # @return [Hash] The gift that has been created.
       def create_gift(data)
         parse(post('api/Gift', format(data)))
       end
@@ -156,6 +153,7 @@ module Virtuous
       ##
       # Creates gifts in bulks of up to 100 at a time.
       #
+      # @example
       #     client.create_gifts([
       #       {
       #         contact_id: 1, gift_type: 'Cash', amount: 10.5, currency_code: 'USD',
@@ -167,13 +165,11 @@ module Virtuous
       #       }
       #     ])
       #
-      # ### Params
-      # - `gifts`: An array of gifts.
-      # Refer to the [Gift data](#module-Virtuous::Client::Gift-label-Gift+data) section
-      # above to see the available attributes.
+      # @param gifts [Array] An array of gifts.
+      #   Refer to the [Gift data](#module-Virtuous::Client::Gift-label-Gift+data) section
+      #   above to see the available attributes.
       #
-      # ### Returns
-      # An array of gifts.
+      # @return [Array] An array of gifts.
       def create_gifts(gifts)
         request_body = gifts.map { |gift| format(gift) }
         response = post('api/Gift/Bulk', request_body)
@@ -183,22 +179,21 @@ module Virtuous
       ##
       # Updates a gift.
       #
+      # @example
       #     client.update_gift(
       #       1, gift_type: 'Cash', amount: 5.0, currency_code: 'USD',
       #       gift_date: Date.today
       #     )
       #
-      # Excluding a property will remove it's value from the object.
+      # @note Excluding a property will remove it's value from the object.
       # If you're only updating a single property, the entire model is still required.
       #
-      # ### Params
-      # - `id`: The id of the gift to update.
-      # - `data`: A hash containing the gift details.
-      # Refer to the [Gift data](#module-Virtuous::Client::Gift-label-Gift+data) section
-      # above to see the available attributes.
+      # @param id [Integer] The id of the gift to update.
+      # @param data [Hash] A hash containing the gift details.
+      #   Refer to the [Gift data](#module-Virtuous::Client::Gift-label-Gift+data) section
+      #   above to see the available attributes.
       #
-      # ### Returns
-      # The gift that has been updated.
+      # @return [Hash] The gift that has been updated.
       def update_gift(id, data)
         parse(put("api/Gift/#{id}", format(data)))
       end
@@ -206,10 +201,10 @@ module Virtuous
       ##
       # Delete a gift.
       #
+      # @example
       #     client.delete_gift(1)
       #
-      # ### Params
-      # - `id`: The id of the gift to delete.
+      # @param id [Integer] The id of the gift to delete.
       def delete_gift(id)
         delete("api/Gift/#{id}")
       end
@@ -223,6 +218,7 @@ module Virtuous
       # with.
       # The organization reviews the imported transactions, and then clicks run.
       #
+      # @example
       #     client.import_gift(
       #       gift_type: 'Cash', amount: 10.5, currency_code: 'USD', gift_date: Date.today,
       #       contact: {
@@ -231,8 +227,7 @@ module Virtuous
       #       }
       #     )
       #
-      # ### Params
-      # - `data`: A hash containing the gift details.
+      # @param data [Hash] A hash containing the gift details.
       #
       # #### Full list of accepted fields
       #
@@ -341,6 +336,7 @@ module Virtuous
       # with.
       # The organization reviews the imported transactions, and then clicks run.
       #
+      # @example
       #     client.import_gifts(
       #       transaction_source: 'Source', transactions: [
       #         {
@@ -360,17 +356,16 @@ module Virtuous
       #       ]
       #     )
       #
-      # ### Params
-      # - `transactions`: An array of gifts. Refer to Virtuous::Client::Gift#import_gift to see
-      # a full list of accepted fields.
-      # - `shared_fields`: Shared fields for the transactions.
-      #     - `transaction_source`
-      #     - `create_import`
-      #     - `import_name`
-      #     - `batch`
-      #     - `batch_total`
-      #     - `default_gift_date`
-      #     - `default_gift_type`
+      # @param transactions [Array] An array of gifts. Refer to Virtuous::Client::Gift#import_gift
+      #   to see a full list of accepted fields.
+      # @param shared_fields [Hash] Shared fields for the transactions.
+      # @option shared_fields [String] :transaction_source
+      # @option shared_fields [Boolean] :create_import
+      # @option shared_fields [String] :import_name
+      # @option shared_fields [String] :batch
+      # @option shared_fields [Float] :batch_total
+      # @option shared_fields [String] :default_gift_date
+      # @option shared_fields [String] :default_gift_type
       def import_gifts(transactions:, **shared_fields)
         shared_fields = shared_fields.slice(
           :transaction_source, :create_import, :import_name, :batch, :batch_total,
