@@ -15,7 +15,9 @@ end
 
 desc 'Launch a pry shell with libraries loaded'
 task pry: :environment do
-  @client = Virtuous::Client.new if ENV['VIRTUOUS_KEY']
+  options = {}
+  options[:logger] = Logger.new($stdout) unless ENV['CLIENT_LOGGER'].nil?
+  @client = Virtuous::Client.new(**options) if ENV['VIRTUOUS_KEY']
 
   require 'pry'
   Pry.start
