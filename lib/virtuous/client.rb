@@ -4,14 +4,8 @@ Dir[File.expand_path('client/*.rb', __dir__)].sort.each { |f| require f }
 
 module Virtuous
   ##
-  # An API client for Virtuous. To construct a client, you need to configure the `:api_key`.
-  #
-  #     client = Virtuous::Client.new(
-  #       api_key: api_key,
-  #       # ...
-  #     )
-  #
-  # See Client::new for a full list of supported configuration options.
+  # An API client for Virtuous.
+  # See {initialize} for a full list of supported configuration options.
   #
   # ### Authentication
   #
@@ -21,6 +15,11 @@ module Virtuous
   # [virtuous connect dashboard](https://connect.virtuoussoftware.com/).
   # Then you can use the key by setting the `api_key` param while creating the client or
   # by setting the `VIRTUOUS_KEY` environment variable beforehand.
+  #
+  #     client = Virtuous::Client.new(
+  #       api_key: api_key,
+  #       # ...
+  #     )
   #
   # #### Oauth
   #
@@ -65,10 +64,10 @@ module Virtuous
   #
   # Check resource modules to see available client methods:
   #
-  # - Contact
-  # - Individual
-  # - Gift
-  # - GiftDesignation
+  # - {Contact}
+  # - {Individual}
+  # - {Gift}
+  # - {GiftDesignation}
   class Client
     include Contact
     include Individual
@@ -89,14 +88,12 @@ module Virtuous
     attr_reader :refreshed
 
     ##
-    # ### Options
-    #
-    # - `:base_url`: The base url to use for API calls.
-    # Default: `https://api.virtuoussoftware.com`.
-    # - `:api_key`: The key for the API.
-    # - `:access_token`: The OAuth access token.
-    # - `:refresh_token`: The OAuth refresh token.
-    # - `:expires_at`: The expiration date of the access token.
+    # @option config [String] :base_url The base url to use for API calls.
+    #   Default: `https://api.virtuoussoftware.com`.
+    # @option config [String] :api_key The key for the API.
+    # @option config [String] :access_token The OAuth access token.
+    # @option config [String] :refresh_token The OAuth refresh token.
+    # @option config [Time] :expires_at The expiration date of the access token.
     def initialize(**config)
       read_config(config)
 
@@ -104,64 +101,49 @@ module Virtuous
     end
 
     ##
-    # :method: get
-    # :args: path, body = {}
+    # @!method get(path, body = {})
     # Makes a `GET` request to the path.
     #
-    # ### Params
-    # - `path`: The path to send the request.
-    # - `body`: Hash of URI query unencoded key/value pairs.
+    # @param path [String] The path to send the request.
+    # @param body [Hash] Hash of URI query unencoded key/value pairs.
     #
-    # ### Returns
-    # The body of the response.
+    # @return [Object] The body of the response.
 
     ##
-    # :method: post
-    # :args: path, body = {}
+    # @!method post(path, body = {})
     # Makes a `POST` request to the path.
     #
-    # ### Params
-    # - `path`: The path to send the request.
-    # - `body`: Hash of URI query unencoded key/value pairs.
+    # @param path [String] The path to send the request.
+    # @param body [Hash] Hash of URI query unencoded key/value pairs.
     #
-    # ### Returns
-    # The body of the response.
+    # @return [Object] The body of the response.
 
     ##
-    # :method: delete
-    # :args: path, body = {}
+    # @!method delete(path, body = {})
     # Makes a `DELETE` request to the path.
     #
-    # ### Params
-    # - `path`: The path to send the request.
-    # - `body`: Hash of URI query unencoded key/value pairs.
+    # @param path [String] The path to send the request.
+    # @param body [Hash] Hash of URI query unencoded key/value pairs.
     #
-    # ### Returns
-    # The body of the response.
+    # @return [Object] The body of the response.
 
     ##
-    # :method: patch
-    # :args: path, body = {}
+    # @!method patch(path, body = {})
     # Makes a `PATCH` request to the path.
     #
-    # ### Params
-    # - `path`: The path to send the request.
-    # - `body`: Hash of URI query unencoded key/value pairs.
+    # @param path [String] The path to send the request.
+    # @param body [Hash] Hash of URI query unencoded key/value pairs.
     #
-    # ### Returns
-    # The body of the response.
+    # @return [Object] The body of the response.
 
     ##
-    # :method: put
-    # :args: path, body = {}
+    # @!method put(path, body = {})
     # Makes a `PUT` request to the path.
     #
-    # ### Params
-    # - `path`: The path to send the request.
-    # - `body`: Hash of URI query unencoded key/value pairs.
+    # @param path [String] The path to send the request.
+    # @param body [Hash] Hash of URI query unencoded key/value pairs.
     #
-    # ### Returns
-    # The body of the response.
+    # @return [Object] The body of the response.
     [:get, :post, :delete, :patch, :put].each do |http_method|
       define_method(http_method) do |path, body = {}|
         connection.public_send(http_method, path, body).body
@@ -171,24 +153,23 @@ module Virtuous
     ##
     # Send a request to get an access token using the email and password of a user.
     #
-    # ### Params
-    # - `path`: The path to send the request.
-    # - `body`: Hash of URI query unencoded key/value pairs.
-    # - `otp`: One Time Password for users with two-factor authentication.
+    # @param email [String] The email of the user.
+    # @param password [String] The password of the user.
+    # @param otp [Integer] The One Time Password of the two-factor authentication flow.
     #
-    # ### Returns
+    # @return [Hash] If the authentication was a success, it contains the OAuth tokens.
+    #   If two factor is required, it will include the `:requires_otp` key.
+    # @example Output if authentication is a success
+    #       {
+    #         access_token: '<access_token>',
+    #         refresh_token: '<refresh_token>',
+    #         expires_at: Time
+    #       }
     #
-    #     # If the authentication was a success
-    #     {
-    #       access_token: '<access_token>',
-    #       refresh_token: '<refresh_token>',
-    #       expires_at: <expiration date>
-    #     }
-    #
-    #     # If it requires Two-Factor Authentication
-    #     {
-    #       requires_otp: true
-    #     }
+    # @example Output if Two-Factor Authentication is required
+    #       {
+    #         requires_otp: true
+    #       }
     def authenticate(email, password, otp = nil)
       data = { grant_type: 'password', username: email, password: password }
       data[:otp] = otp unless otp.nil?

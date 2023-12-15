@@ -77,13 +77,12 @@ module Virtuous
       ##
       # Fetches a contact record by email.
       #
+      # @example
       #     client.find_contact_by_email('contact@email.com')
       #
-      # ### Params
-      # - `email`: The email of the contact.
+      # @param email [String] The email of the contact.
       #
-      # ### Returns
-      # The contact information in a hash.
+      # @return [Hash] The contact information in a hash.
       def find_contact_by_email(email)
         parse(get('api/Contact/Find', { email: email }))
       end
@@ -91,13 +90,12 @@ module Virtuous
       ##
       # Fetches a contact record by id.
       #
+      # @example
       #     client.get_contact(1)
       #
-      # ### Params
-      # - `id`: The id of the contact.
+      # @param id [Integer] The id of the contact.
       #
-      # ### Returns
-      # The contact information in a hash.
+      # @return [Hash] The contact information in a hash.
       def get_contact(id)
         parse(get("api/Contact/#{id}"))
       end
@@ -112,13 +110,13 @@ module Virtuous
       # with.
       # The organization reviews the imported transactions, and then clicks run.
       #
+      # @example
       #     client.import_contact(
       #       contact_type: 'Organization', name: 'Org name',
       #       first_name: 'John', last_name: 'Doe'
       #     )
       #
-      # ### Params
-      # - `data`: A hash containing the contact details.
+      # @param data [Hash] A hash containing the contact details.
       #
       # #### Required fields
       # - `contact_type`: "Household", "Organization", "Foundation" or a custom type.
@@ -182,6 +180,7 @@ module Virtuous
       ##
       # Creates a contact.
       #
+      # @example
       #     client.create_contact(
       #       contact_type: 'Organization', name: 'Org name',
       #       contact_individuals: [
@@ -189,13 +188,11 @@ module Virtuous
       #       ]
       #     )
       #
-      # ### Params
-      # - `data`: A hash containing the contact details.
-      # Refer to the [Contact data](#module-Virtuous::Client::Contact-label-Contact+data) section
-      # above to see the available attributes.
+      # @param data [Hash] A hash containing the contact details.
+      #   Refer to the [Contact data](#module-Virtuous::Client::Contact-label-Contact+data) section
+      #   above to see the available attributes.
       #
-      # ### Returns
-      # The contact that has been created.
+      # @return [Hash] The contact that has been created.
       def create_contact(data)
         parse(post('api/Contact', format(data)))
       end
@@ -203,19 +200,18 @@ module Virtuous
       ##
       # Updates a contact.
       #
+      # @example
       #     client.update_contact(1, contact_type: 'Organization', name: 'New name')
       #
-      # Excluding a property will remove it's value from the object.
+      # @note Excluding a property will remove it's value from the object.
       # If you're only updating a single property, the entire model is still required.
       #
-      # ### Params
-      # - `id`: The id of the contact to update.
-      # - `data`: A hash containing the contact details.
-      # Refer to the [Contact data](#module-Virtuous::Client::Contact-label-Contact+data) section
-      # above to see the available attributes.
+      # @param id [Integer] The id of the contact to update.
+      # @param data [Hash] A hash containing the contact details.
+      #   Refer to the [Contact data](#module-Virtuous::Client::Contact-label-Contact+data) section
+      #   above to see the available attributes.
       #
-      # ### Returns
-      # The contact that has been updated.
+      # @return [Hash] The contact that has been updated.
       def update_contact(id, data)
         parse(put("api/Contact/#{id}", format(data)))
       end

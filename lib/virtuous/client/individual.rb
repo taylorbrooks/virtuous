@@ -53,13 +53,12 @@ module Virtuous
       ##
       # Fetches an individual record by email.
       #
+      # @example
       #     client.find_individual_by_email('individual@email.com')
       #
-      # ### Params
-      # - `email`: The email of the individual.
+      # @param email [String] The email of the individual.
       #
-      # ### Returns
-      # The individual information in a hash.
+      # @return [Hash] The individual information in a hash.
       def find_individual_by_email(email)
         parse(get('api/ContactIndividual/Find', { email: email }))
       end
@@ -67,13 +66,12 @@ module Virtuous
       ##
       # Fetches an individual record by id.
       #
+      # @example
       #     client.get_individual(1)
       #
-      # ### Params
-      # - `id`: The id of the individual.
+      # @param id [Integer] The id of the individual.
       #
-      # ### Returns
-      # The individual information in a hash.
+      # @return [Hash] The individual information in a hash.
       def get_individual(id)
         parse(get("api/ContactIndividual/#{id}"))
       end
@@ -81,15 +79,14 @@ module Virtuous
       ##
       # Creates an individual.
       #
+      # @example
       #     client.create_individual(first_name: 'John', last_name: 'Doe', contact_id: 1)
       #
-      # ### Params
-      # - `data`: A hash containing the individual details.
-      # Refer to the [Individual data](#module-Virtuous::Client::Individual-label-Individual+data)
-      # section above to see the available attributes.
+      # @param data [Hash] A hash containing the individual details.
+      #   Refer to the [Individual data](#module-Virtuous::Client::Individual-label-Individual+data)
+      #   section above to see the available attributes.
       #
-      # ### Returns
-      # The individual that has been created.
+      # @return [Hash] The individual that has been created.
       def create_individual(data)
         parse(post('api/ContactIndividual', format(data)))
       end
@@ -97,19 +94,18 @@ module Virtuous
       ##
       # Updates an individual.
       #
+      # @example
       #     client.update_individual(1, first_name: 'New', last_name: 'Name')
       #
-      # Excluding a property will remove it's value from the object.
+      # @note Excluding a property will remove it's value from the object.
       # If you're only updating a single property, the entire model is still required.
       #
-      # ### Params
-      # - `id`: The id of the individual to update.
-      # - `data`: A hash containing the individual details.
-      # Refer to the [Individual data](#module-Virtuous::Client::Individual-label-Individual+data)
-      # section above to see the available attributes.
+      # @param id [Integer] The id of the individual to update.
+      # @param data [Hash] A hash containing the individual details.
+      #   Refer to the [Individual data](#module-Virtuous::Client::Individual-label-Individual+data)
+      #   section above to see the available attributes.
       #
-      # ### Returns
-      # The individual that has been updated.
+      # @return [Hash] The individual that has been updated.
       def update_individual(id, data)
         parse(put("api/ContactIndividual/#{id}", format(data)))
       end
@@ -117,10 +113,10 @@ module Virtuous
       ##
       # Delete an individual.
       #
+      # @example
       #     client.delete_individual(1)
       #
-      # ### Params
-      # - `id`: The id of the individual to delete.
+      # @param id [Integer] The id of the individual to delete.
       def delete_individual(id)
         delete("api/ContactIndividual/#{id}")
       end

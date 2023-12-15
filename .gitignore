@@ -2,3 +2,4 @@ virtuous-*.gem
 .env
 Gemfile.lock
 doc
+.yardoc
