@@ -96,6 +96,7 @@ module Virtuous
     # @option config [Time] :expires_at The expiration date of the access token.
     # @option config [Hash] :ssl_options SSL options to use with Faraday.
     # @option config [Logger] :logger Logger object for Faraday.
+    # @option config [Symbol] :adapter Faraday adapter to use. Default: `Faraday.default_adapter`.
     def initialize(**config)
       read_config(config)
 
@@ -182,13 +183,15 @@ module Virtuous
 
     def read_config(config)
       [
-        :base_url, :api_key, :access_token, :refresh_token, :expires_at, :ssl_options, :logger
+        :base_url, :api_key, :access_token, :refresh_token, :expires_at, :ssl_options, :logger,
+        :adapter
       ].each do |attribute|
         instance_variable_set("@#{attribute}", config[attribute])
       end
 
       @api_key ||= ENV.fetch('VIRTUOUS_KEY', nil)
       @base_url ||= 'https://api.virtuoussoftware.com'
+      @adapter ||= Faraday.default_adapter
     end
 
     def use_access_token?
@@ -254,6 +257,7 @@ module Virtuous
         conn.response :oj
         conn.response :logger, @logger if @logger
         conn.use FaradayMiddleware::VirtuousErrorHandler
+        conn.adapter @adapter
         yield(conn) if block_given?
       end
     end
