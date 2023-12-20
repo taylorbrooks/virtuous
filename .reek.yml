@@ -7,7 +7,7 @@ detectors:
     exclude:
       - "Virtuous::Client#connection"
       - "Virtuous::Client#unauthorized_connection"
-      - "Hash#deep_transform_keys"
+      - "Virtuous::HashHelper#self.deep_transform_keys"
       - "FaradayMiddleware::ParseOj#on_complete"
   NilCheck:
     exclude:
@@ -16,10 +16,10 @@ detectors:
     public_methods_only: true
   NestedIterators:
     exclude:
-      - "Hash#deep_transform_keys"
+      - "Virtuous::HashHelper#self.deep_transform_keys"
   TooManyStatements:
     exclude:
-      - "Hash#deep_transform_keys"
+      - "Virtuous::HashHelper#self.deep_transform_keys"
       - "Virtuous::Client#connection"
       - "Virtuous::Client#unauthorized_connection"
       - "FaradayMiddleware::VirtuousErrorHandler#on_complete"

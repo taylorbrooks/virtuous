@@ -225,11 +225,11 @@ module Virtuous
     def parse(data)
       data = JSON.parse(data) if data.is_a?(String)
 
-      data.deep_transform_keys { |key| key.underscore.to_sym }
+      HashHelper.deep_transform_keys(data) { |key| StringHelper.underscore(key).to_sym }
     end
 
     def format(data)
-      data.deep_transform_keys { |key| key.to_s.camelize }
+      HashHelper.deep_transform_keys(data) { |key| StringHelper.camelize(key.to_s) }
     end
 
     def bearer_token
