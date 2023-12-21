@@ -12,6 +12,7 @@ class VirtuousMock < Sinatra::Base
     'Gift/ByContact/:id' => :contact_gifts,
     'Gift/:id' => :gift,
     'RecurringGift/:id' => :recurring_gift,
+    'Gift/:transaction_source/:transaction_id' => :gift,
     'GiftDesignation/QueryOptions' => :gift_designation_query_options
   }.each do |end_point, json|
     get "/api/#{end_point}" do

@@ -1,7 +1,7 @@
 {
   "id": 1,
-  "transactionSource": null,
-  "transactionId": null,
+  "transactionSource": "source",
+  "transactionId": 42,
   "contactId": 1,
   "contactName": "Test Contact",
   "contactUrl": "/api/Contact/1",

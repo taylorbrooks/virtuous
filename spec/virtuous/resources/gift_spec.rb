@@ -46,6 +46,25 @@ RSpec.describe Virtuous::Client::Gift, type: :model do
     end
   end
 
+  describe '#find_gift_by_transaction_id(id)' do
+    let(:transaction_source) { 'source' }
+    let(:transaction_id) { 42 }
+
+    it 'returns a hash' do
+      expect(client.find_gift_by_transaction_id(transaction_source, transaction_id)).to be_a(Hash)
+    end
+
+    it 'queries gifts' do
+      expect(client).to receive(:get).with("api/Gift/#{transaction_source}/#{transaction_id}")
+                                     .and_call_original
+
+      resource = client.find_gift_by_transaction_id(transaction_source, transaction_id)
+
+      expect(resource[:transaction_source]).to eq(transaction_source)
+      expect(resource[:transaction_id]).to eq(transaction_id)
+    end
+  end
+
   describe '#import_gift(data)' do
     subject(:resource) do
       client.import_gift(

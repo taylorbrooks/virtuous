@@ -133,6 +133,21 @@ module Virtuous
       end
 
       ##
+      # Fetches a gift record by transaction id.
+      #
+      # @example
+      #     client.find_gift_by_transaction_id('source', 1)
+      #
+      # @param transaction_source [String] The source of the transaction.
+      # @param transaction_id [Integer, String] The id of the transaction.
+      #
+      # @return [Hash] The gift information in a hash.
+      def find_gift_by_transaction_id(transaction_source, transaction_id)
+        encoded_id = transaction_id.is_a?(String) ? encode(transaction_id) : transaction_id
+        parse(get("api/Gift/#{encode(transaction_source)}/#{encoded_id}"))
+      end
+
+      ##
       # Creates a gift.
       #
       # @example
