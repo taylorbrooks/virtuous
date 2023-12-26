@@ -83,7 +83,7 @@ module Virtuous
       #     client.create_individual(first_name: 'John', last_name: 'Doe', contact_id: 1)
       #
       # @param data [Hash] A hash containing the individual details.
-      #   Refer to the [Individual data](#module-Virtuous::Client::Individual-label-Individual+data)
+      #   Refer to the [Individual data](#label-Individual+data)
       #   section above to see the available attributes.
       #
       # @return [Hash] The individual that has been created.
@@ -102,7 +102,7 @@ module Virtuous
       #
       # @param id [Integer] The id of the individual to update.
       # @param data [Hash] A hash containing the individual details.
-      #   Refer to the [Individual data](#module-Virtuous::Client::Individual-label-Individual+data)
+      #   Refer to the [Individual data](#label-Individual+data)
       #   section above to see the available attributes.
       #
       # @return [Hash] The individual that has been updated.

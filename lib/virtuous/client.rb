@@ -72,6 +72,7 @@ module Virtuous
     include Contact
     include Individual
     include Gift
+    include RecurringGift
     include GiftDesignation
 
     ##

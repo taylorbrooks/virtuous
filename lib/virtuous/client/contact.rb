@@ -189,7 +189,7 @@ module Virtuous
       #     )
       #
       # @param data [Hash] A hash containing the contact details.
-      #   Refer to the [Contact data](#module-Virtuous::Client::Contact-label-Contact+data) section
+      #   Refer to the [Contact data](#label-Contact+data) section
       #   above to see the available attributes.
       #
       # @return [Hash] The contact that has been created.
@@ -208,7 +208,7 @@ module Virtuous
       #
       # @param id [Integer] The id of the contact to update.
       # @param data [Hash] A hash containing the contact details.
-      #   Refer to the [Contact data](#module-Virtuous::Client::Contact-label-Contact+data) section
+      #   Refer to the [Contact data](#label-Contact+data) section
       #   above to see the available attributes.
       #
       # @return [Hash] The contact that has been updated.

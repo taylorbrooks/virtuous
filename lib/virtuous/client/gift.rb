@@ -142,7 +142,7 @@ module Virtuous
       #     )
       #
       # @param data [Hash] A hash containing the gift details.
-      #   Refer to the [Gift data](#module-Virtuous::Client::Gift-label-Gift+data) section
+      #   Refer to the [Gift data](#label-Gift+data) section
       #   above to see the available attributes.
       #
       # @return [Hash] The gift that has been created.
@@ -166,7 +166,7 @@ module Virtuous
       #     ])
       #
       # @param gifts [Array] An array of gifts.
-      #   Refer to the [Gift data](#module-Virtuous::Client::Gift-label-Gift+data) section
+      #   Refer to the [Gift data](#label-Gift+data) section
       #   above to see the available attributes.
       #
       # @return [Array] An array of gifts.
@@ -190,7 +190,7 @@ module Virtuous
       #
       # @param id [Integer] The id of the gift to update.
       # @param data [Hash] A hash containing the gift details.
-      #   Refer to the [Gift data](#module-Virtuous::Client::Gift-label-Gift+data) section
+      #   Refer to the [Gift data](#label-Gift+data) section
       #   above to see the available attributes.
       #
       # @return [Hash] The gift that has been updated.
@@ -356,7 +356,7 @@ module Virtuous
       #       ]
       #     )
       #
-      # @param transactions [Array] An array of gifts. Refer to Virtuous::Client::Gift#import_gift
+      # @param transactions [Array] An array of gifts. Refer to {#import_gift}
       #   to see a full list of accepted fields.
       # @param shared_fields [Hash] Shared fields for the transactions.
       # @option shared_fields [String] :transaction_source
