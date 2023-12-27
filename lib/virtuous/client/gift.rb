@@ -98,7 +98,7 @@ module Virtuous
       # @example
       #     client.get_contact_gifts(1, take: 10)
       #
-      # @param contact_id [Hash] The id of the Contact.
+      # @param contact_id [Integer] The id of the Contact.
       # @option options [String] :sort_by The field to be sorted. Supported: `Id`, `GiftDate`,
       #   `Amount`, `Batch`, `CreatedDateTime`.
       # @option options [Boolean] :descending The direction to be sorted.
