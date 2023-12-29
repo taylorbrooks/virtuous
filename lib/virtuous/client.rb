@@ -182,6 +182,11 @@ module Virtuous
 
     private
 
+    def encode(string)
+      # CGI.escape changes spaces to '+', and we need '%20' instead.
+      CGI.escape(string).gsub('+', '%20')
+    end
+
     def read_config(config)
       [
         :base_url, :api_key, :access_token, :refresh_token, :expires_at, :ssl_options, :logger,
