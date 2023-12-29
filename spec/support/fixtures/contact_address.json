@@ -1,0 +1,20 @@
+{
+  "id": 1,
+  "label": "Home address",
+  "address1": "324 Frank Island",
+  "address2": "Apt. 366",
+  "city": "Antonioborough",
+  "state": "MA",
+  "postal": "27516",
+  "country": "United States",
+  "is_primary": true,
+  "can_be_primary": false,
+  "start_month": 1,
+  "start_day": 1,
+  "end_month": 12,
+  "end_day": 31,
+  "create_date_time_utc": "2023-11-30T14:20:56.34",
+  "created_by_user": "Test User",
+  "modified_date_time_utc": "2023-12-27T15:33:09.9",
+  "modified_by_user": "Test User"
+}

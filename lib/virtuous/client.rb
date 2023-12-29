@@ -70,6 +70,7 @@ module Virtuous
   # - {GiftDesignation}
   class Client
     include Contact
+    include ContactAddress
     include Individual
     include Gift
     include RecurringGift
