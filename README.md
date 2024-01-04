@@ -14,7 +14,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
   # in your Gemfile
-  gem 'virtuous', '~> 0.0.1'
+  gem 'virtuous', '~> 0.0.2'
 
   # then...
   bundle install
