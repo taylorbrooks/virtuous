@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.2] - 2024-01-04
+
 ### Added
 
 - A Client class with support for api key and OAuth authentication
@@ -15,4 +17,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Methods to find, create, update and delete gifts
 - Method query gift designations
 
-[unreleased]: https://github.com/taylorbrooks/virtuous/compare/v0.0.0...HEAD
+[unreleased]: https://github.com/taylorbrooks/virtuous/compare/v0.0.2...HEAD
