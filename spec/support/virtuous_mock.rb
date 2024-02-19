@@ -14,7 +14,8 @@ class VirtuousMock < Sinatra::Base
     'Gift/:id' => :gift,
     'RecurringGift/:id' => :recurring_gift,
     'Gift/:transaction_source/:transaction_id' => :gift,
-    'GiftDesignation/QueryOptions' => :gift_designation_query_options
+    'GiftDesignation/QueryOptions' => :gift_designation_query_options,
+    'Project/QueryOptions' => :project_query_options # TODO: change fixture
   }.each do |end_point, json|
     get "/api/#{end_point}" do
       json_response 200, "#{json}.json"
@@ -32,6 +33,7 @@ class VirtuousMock < Sinatra::Base
     'RecurringGift' => :recurring_gift,
     'Gift/Bulk' => :gifts,
     'GiftDesignation/Query' => :gift_designations,
+    'Project/Query' => :projects, # TODO: change fixture
     'ContactAddress' => :contact_address
   }.each do |end_point, json|
     post "/api/#{end_point}" do

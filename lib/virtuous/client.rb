@@ -75,6 +75,7 @@ module Virtuous
     include Gift
     include RecurringGift
     include GiftDesignation
+    include Project
 
     ##
     # Access token used for OAuth authentication.
