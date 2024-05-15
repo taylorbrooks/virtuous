@@ -8,7 +8,7 @@ detectors:
       - "Virtuous::Client#connection"
       - "Virtuous::Client#unauthorized_connection"
       - "Virtuous::HashHelper#self.deep_transform_keys"
-      - "FaradayMiddleware::ParseOj#on_complete"
+      - "Virtuous::FaradayMiddleware::ParseOj#on_complete"
   NilCheck:
     exclude:
       - "Virtuous::Client#initialize"
@@ -22,7 +22,7 @@ detectors:
       - "Virtuous::HashHelper#self.deep_transform_keys"
       - "Virtuous::Client#connection"
       - "Virtuous::Client#unauthorized_connection"
-      - "FaradayMiddleware::VirtuousErrorHandler#on_complete"
+      - "Virtuous::FaradayMiddleware::VirtuousErrorHandler#on_complete"
   ControlParameter:
     exclude:
       - "Virtuous::Client#initialize"

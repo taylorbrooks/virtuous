@@ -264,7 +264,7 @@ module Virtuous
         conn.request :json
         conn.response :oj
         conn.response :logger, @logger if @logger
-        conn.use FaradayMiddleware::VirtuousErrorHandler
+        conn.use Virtuous::FaradayMiddleware::VirtuousErrorHandler
         conn.adapter @adapter
         yield(conn) if block_given?
       end
