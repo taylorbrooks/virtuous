@@ -23,4 +23,4 @@ module Virtuous
   end
 end
 
-Faraday::Response.register_middleware(oj: Virtuous::FaradayMiddleware::ParseOj)
+Faraday::Response.register_middleware(virtuous_oj: Virtuous::FaradayMiddleware::ParseOj)

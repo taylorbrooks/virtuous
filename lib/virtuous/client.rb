@@ -262,7 +262,7 @@ module Virtuous
 
       Faraday.new(options) do |conn|
         conn.request :json
-        conn.response :oj
+        conn.response :virtuous_oj
         conn.response :logger, @logger if @logger
         conn.use Virtuous::FaradayMiddleware::VirtuousErrorHandler
         conn.adapter @adapter
